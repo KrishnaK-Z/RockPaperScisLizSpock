@@ -10,6 +10,9 @@ const PlayGround = ({ winAction }) => {
       winAction
     }
   );
+
+  const rippleElement = <div className="ripple" />;
+
   return (
     <Fragment>
       {!playerChoice ? (
@@ -30,12 +33,15 @@ const PlayGround = ({ winAction }) => {
                 .filter(({ title }) => title.localeCompare(playerChoice) === 0)
                 .map(({ title, src }) => (
                   <div
-                    className={`icon ${playerChoice} ${
-                      result.localeCompare("win") ? "lose" : "win"
+                    className={`icon-wrapper ${
+                      result.localeCompare("win") ? "win" : "lose"
                     }`}
                     key={title}
                   >
-                    <img src={src} alt="your pick" />
+                    <div className={`icon ${playerChoice} `}>
+                      <img src={src} alt="your pick" />
+                    </div>
+                    {rippleElement}
                   </div>
                 ))}
             </div>
@@ -54,12 +60,15 @@ const PlayGround = ({ winAction }) => {
                   .filter(({ title }) => title.localeCompare(botChoice) === 0)
                   .map(({ title, src }) => (
                     <div
-                      className={`icon ${botChoice} ${
-                        result.localeCompare("win") ? "win" : "lose"
+                      className={`icon-wrapper ${
+                        result.localeCompare("win") ? "lose" : "win"
                       }`}
                       key={title}
                     >
-                      <img src={src} alt="your pick" />
+                      <div className={`icon ${botChoice}`}>
+                        <img src={src} alt="your pick" />
+                      </div>
+                      {rippleElement}
                     </div>
                   ))}
             </div>
