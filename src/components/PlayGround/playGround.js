@@ -10,18 +10,6 @@ const PlayGround = ({ winAction }) => {
       winAction
     }
   );
-
-  const RippleElement = (
-    <div className="ripple">
-      <div id="six">6</div>
-      <div id="five">5</div>
-      <div id="four">4</div>
-      <div id="three">3</div>
-      <div id="two">2</div>
-      <div id="one">1</div>
-    </div>
-  );
-
   return (
     <Fragment>
       {!playerChoice ? (
@@ -47,10 +35,7 @@ const PlayGround = ({ winAction }) => {
                     }`}
                     key={title}
                   >
-                    <div className={`icon ${playerChoice} `}>
-                      <img src={src} alt="your pick" />
-                    </div>
-                    {/*{RippleElement}*/}
+                    <img src={src} alt="your pick" />
                   </div>
                 ))}
             </div>
@@ -74,10 +59,7 @@ const PlayGround = ({ winAction }) => {
                       }`}
                       key={title}
                     >
-                      <div className={`icon ${botChoice}`}>
-                        <img src={src} alt="your pick" />
-                      </div>
-                      {/*{RippleElement}*/}
+                      <img src={src} alt="your pick" />
                     </div>
                   ))}
             </div>

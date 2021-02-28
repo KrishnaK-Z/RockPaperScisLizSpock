@@ -139,17 +139,6 @@
       width: 12rem;
       height: 12rem;
 
-      &.win {
-        &::before{
-          content: "";
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          border-radius: 50%;
-          border: 26px solid #f1f3f6
-        }
-      }
-
       @include desktop {
         width: 15rem;
         height: 15rem;
