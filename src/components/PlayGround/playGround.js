@@ -42,10 +42,10 @@ const PlayGround = ({ winAction }) => {
                 .filter(({ title }) => title.localeCompare(playerChoice) === 0)
                 .map(({ title, src }) => (
                   <div
-                    key={title}
-                    className={`icon-wrapper ${
+                    className={`icon ${playerChoice} ${
                       result.localeCompare("win") ? "lose" : "win"
                     }`}
+                    key={title}
                   >
                     <div className={`icon ${playerChoice} `}>
                       <img src={src} alt="your pick" />
@@ -69,10 +69,10 @@ const PlayGround = ({ winAction }) => {
                   .filter(({ title }) => title.localeCompare(botChoice) === 0)
                   .map(({ title, src }) => (
                     <div
-                      key={title}
-                      className={`icon-wrapper ${
+                      className={`icon ${botChoice} ${
                         result.localeCompare("win") ? "win" : "lose"
                       }`}
+                      key={title}
                     >
                       <div className={`icon ${botChoice}`}>
                         <img src={src} alt="your pick" />
