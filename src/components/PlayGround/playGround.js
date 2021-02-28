@@ -5,11 +5,17 @@ import { icons } from "./icons";
 import "./playGround.scss";
 
 const PlayGround = ({ winAction }) => {
-  const { boardClickHandler, result, playerChoice, botChoice, reset } = usePlay(
-    {
-      winAction
-    }
-  );
+  const {
+    boardClickHandler,
+    result,
+    playerChoice,
+    botChoice,
+    reset,
+    botWinnerEffect,
+    playerWinnerEffect
+  } = usePlay({
+    winAction
+  });
 
   const rippleElement = <div className="ripple" />;
 
@@ -33,9 +39,7 @@ const PlayGround = ({ winAction }) => {
                 .filter(({ title }) => title.localeCompare(playerChoice) === 0)
                 .map(({ title, src }) => (
                   <div
-                    className={`icon-wrapper ${
-                      result.localeCompare("win") ? "win" : "lose"
-                    }`}
+                    className={`icon-wrapper ${playerWinnerEffect}`}
                     key={title}
                   >
                     <div className={`icon ${playerChoice} `}>
@@ -60,9 +64,7 @@ const PlayGround = ({ winAction }) => {
                   .filter(({ title }) => title.localeCompare(botChoice) === 0)
                   .map(({ title, src }) => (
                     <div
-                      className={`icon-wrapper ${
-                        result.localeCompare("win") ? "lose" : "win"
-                      }`}
+                      className={`icon-wrapper ${botWinnerEffect}`}
                       key={title}
                     >
                       <div className={`icon ${botChoice}`}>

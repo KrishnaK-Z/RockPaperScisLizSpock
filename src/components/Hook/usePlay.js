@@ -3,7 +3,10 @@ import { useCallback, useState, useMemo } from "react";
 export const usePlay = ({ winAction }) => {
   const [playerChoice, setPlayerChoice] = useState("");
   const [botChoice, setBotChoice] = useState("");
-  const [result, setResult] = useState("lose");
+  const [result, setResult] = useState("tie");
+
+  const [botWinnerEffect, setBotWinnerEffect] = useState("");
+  const [playerWinnerEffect, setPlayerWinnerEffect] = useState("");
 
   const choices = useMemo(
     () => ["scissor", "paper", "rock", "lizard", "spock"],
@@ -38,6 +41,12 @@ export const usePlay = ({ winAction }) => {
 
       if (diff === 1) winAction(prevScore => prevScore++);
 
+      if (results[diff].localeCompare("win") === 0) {
+        setPlayerWinnerEffect("win");
+      } else if (results[diff].localeCompare("lose") === 0) {
+        setBotWinnerEffect("win");
+      }
+
       setResult(results[diff]);
     },
     [moves, winAction]
@@ -59,6 +68,8 @@ export const usePlay = ({ winAction }) => {
     setPlayerChoice("");
     setBotChoice("");
     setResult("lose");
+    setBotWinnerEffect("");
+    setPlayerWinnerEffect("");
   }, []);
 
   return {
@@ -66,6 +77,8 @@ export const usePlay = ({ winAction }) => {
     result,
     playerChoice,
     botChoice,
-    reset
+    reset,
+    botWinnerEffect,
+    playerWinnerEffect
   };
 };
