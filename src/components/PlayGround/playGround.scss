@@ -1,0 +1,228 @@
+@import "../../mixins";
+
+.icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  background-color: #fff;
+
+  img{
+    max-width: 50%;
+  }
+}
+
+.scissor{
+  box-shadow: inset 0 -1rem 0 -0.5rem hsl(39, 89%, 49%),
+  inset 0 0 0 0.8rem hsl(40, 84%, 53%),
+  inset 0 0.5rem 0 0.8rem rgba(146, 148, 150, 0.473);
+}
+
+.paper{
+  box-shadow: inset 0 -1rem 0 -0.5rem hsl(230, 89%, 62%),
+  inset 0 0 0 0.8rem hsl(230, 89%, 65%),
+  inset 0 0.5rem 0 0.8rem rgba(146, 148, 150, 0.473);
+}
+
+.spock{
+  box-shadow: inset 0 -1rem 0 -0.5rem hsl(189, 59%, 53%),
+  inset 0 0 0 0.8rem hsl(189, 58%, 57%),
+  inset 0 0.5rem 0 0.8rem rgba(146, 148, 150, 0.473);
+}
+
+.rock{
+  box-shadow: inset 0 -1rem 0 -0.5rem hsl(349, 71%, 52%),
+  inset 0 0 0 0.8rem hsl(349, 70%, 56%),
+  inset 0 0.5rem 0 0.8rem rgba(146, 148, 150, 0.473);
+}
+
+.lizard{
+  box-shadow: inset 0 -1rem 0 -0.5rem hsl(261, 73%, 60%),
+  inset 0 0 0 0.8rem hsl(261, 72%, 63%),
+  inset 0 0.5rem 0 0.8rem rgba(146, 148, 150, 0.473);
+}
+
+.playground {
+  position: relative;
+  width: 70%;
+
+  @include desktop {
+    width: 30%;
+  }
+
+  & > img {
+    width: 100%;
+  }
+
+  .icon {
+    position: absolute;
+    transform: translateZ(0);
+    transition-duration: 0.5s;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.2);
+      transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+    }
+  }
+
+  .scissor {
+    top: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &:hover {
+      transform: translateX(-50%) scale(1.2);
+    }
+  }
+
+  .paper {
+    right: 0;
+    top: 20%;
+    transform: translateX(40%);
+
+    &:hover {
+      transform: translateX(40%) scale(1.2);
+    }
+  }
+
+  .rock {
+    bottom: -3rem;
+    right: 3%;
+  }
+
+  .lizard {
+    bottom: -3rem;
+    left: 3%;
+  }
+
+  .spock {
+    left: 0;
+    top: 20%;
+    transform: translateX(-40%);
+
+    &:hover {
+      transform: translateX(-40%) scale(1.2);
+    }
+  }
+}
+
+.result__board {
+  position: relative;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include desktop {
+    width: 70%;
+  }
+
+  .pick {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 20rem;
+    color: #fff;
+    font-size: 1.5rem;
+    gap: 3rem;
+    position: relative;
+
+    @include desktop {
+      flex-direction: column;
+    }
+
+    .icon {
+      width: 12rem;
+      height: 12rem;
+
+      &.win {
+        &::before{
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          border: 26px solid #f1f3f6
+        }
+      }
+
+      @include desktop {
+        width: 15rem;
+        height: 15rem;
+      }
+
+      img {
+        width: 40%;
+      }
+    }
+  }
+
+  .result {
+    display: none;
+
+    @include desktop {
+      display: flex;
+    }
+  }
+
+  .scissor{
+    box-shadow: inset 0 -1rem 0 -0.25rem hsl(39, 89%, 49%),
+    inset 0 0 0 2rem hsl(40, 84%, 53%),
+    inset 0 0.5rem 0 2rem hsla(204, 2%, 58%, 0.473);
+  }
+  .paper{
+    box-shadow: inset 0 -1rem 0 -0.25rem hsl(230, 89%, 62%),
+    inset 0 0 0 2rem hsl(230, 89%, 65%),
+    inset 0 0.5rem 0 2rem hsla(204, 2%, 58%, 0.473);
+  }
+  .spock{
+    @include desktop {
+      box-shadow: inset 0 -1rem 0 -0.25rem hsl(189, 59%, 53%),
+      inset 0 0 0 2rem hsl(189, 58%, 57%),
+      inset 0 0.5rem 0 2rem hsla(204, 2%, 58%, 0.473);
+    }
+  }
+  .rock{
+    box-shadow: inset 0 -1rem 0 -0.25rem hsl(349, 71%, 52%),
+    inset 0 0 0 2rem hsl(349, 70%, 56%),
+    inset 0 0.5rem 0 2rem hsla(204, 2%, 58%, 0.473);
+  }
+  .lizard{
+    box-shadow: inset 0 -1rem 0 -0.25rem hsl(261, 73%, 60%),
+    inset 0 0 0 2rem hsl(261, 72%, 63%),
+    inset 0 0.5rem 0 2rem hsla(204, 2%, 58%, 0.473);
+  }
+}
+
+.result{
+  flex-direction: column;
+  align-items: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+  gap: 1rem;
+
+  &.outside {
+    display: flex;
+    flex-direction: column-reverse;
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  .reset{
+    font-size: 1rem;
+    padding: 1rem 3rem;
+    border-radius: 0.5rem;
+    color: hsl(229, 25%, 31%);
+
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}

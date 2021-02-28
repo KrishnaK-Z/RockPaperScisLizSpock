@@ -1,0 +1,9 @@
+export { default as Logo } from "./logo.svg";
+export { default as BgPenta } from "./bg-pentagon.svg";
+export { default as Rock } from "./icon-rock.svg";
+export { default as Paper } from "./icon-paper.svg";
+export { default as Scissor } from "./icon-scissors.svg";
+export { default as Lizard } from "./icon-lizard.svg";
+export { default as Spock } from "./icon-spock.svg";
+export { default as RuleBook } from "./image-rules.svg";
+export { default as Close } from "./icon-close.svg";
